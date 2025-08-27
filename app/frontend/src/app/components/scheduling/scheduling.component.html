@@ -1,0 +1,39 @@
+<app-header-and-menu></app-header-and-menu>
+
+<div class="container card">
+    <h2 class="card-header">Upravljanje zakazivanjima</h2>
+    <div class="card-body" *ngIf="events.length > 0; else noEvents">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Događaj</th>
+            <th>Korisnik</th>
+            <th>Datum</th>
+            <th>Broj gostiju</th>
+            <th>Akcija</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of events">
+            <td>{{ event.eventOfferId?.name }}</td>
+            <td>{{ event.customerId?.firstName }} {{ event.customerId?.lastName }}</td>
+            <td>{{ event.date | date:'shortDate' }}</td>
+            <td>{{ event.numberOfPeople }}</td>
+            <td>
+              <i class="bi bi-check-lg text-success" style="cursor:pointer; margin-right:10px; font-size: 20px;" 
+                 (click)="acceptEvent(event.eventId!)"></i>
+              <i class="bi bi-x-lg text-danger" style="cursor:pointer; font-size: 20px;" 
+                 (click)="declineEvent(event.eventId!)"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <ng-template #noEvents>
+      <p class="info-message">Trenutno nema događaja za upravljanje.</p>
+    </ng-template>
+  
+    <p *ngIf="errorMsg" class="error-message">{{ errorMsg }}</p>
+  </div>
+  

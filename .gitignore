@@ -1,0 +1,37 @@
+#ignore node_modules -> download by "npm install"
+app/frontend/node_modules
+app/backend-node/node_modules
+
+#ignore build files
+app/frontend/dist
+app/backend-node/dist
+app/.idea
+
+# Ignoriše angular cache -> create by "ng s" or "ng b"
+app/frontend/.angular
+
+#ignore build filesa
+app/frontend/package-lock.json
+app/backend-node/package-lock.json
+app/backend-java/target
+app/backend-java/nbactions.xml
+
+#private credentials
+app/OAuth 2.0 credentials.json
+app/backend-node/.env
+
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# add .idea to gitignore
+.idea
+app/.idea
+
+# application properties
+app/backend-java/src/main/resources/application.properties
+app/backend-java/src/main/resources/META-INF/.LCKpersistence.xml~
+
+.env
+
+# Macos
+.DS_store

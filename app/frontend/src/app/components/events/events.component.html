@@ -1,0 +1,24 @@
+<app-header-and-menu></app-header-and-menu>
+
+<div class="container">
+    <h2>Organizovani događaji</h2>
+    <p>{{ errorMsg }}</p>
+    <div class="row">
+        <div class="col-md-4  mb-2" *ngFor="let e of viewEvents">       
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5>{{e.eventOfferId.name}}</h5>
+                </div>
+                <div class="card-body pb-0">
+                    <img *ngIf="e.eventOfferId.photoId && e.eventOfferId.photoId.file" 
+                        [src]="e.eventOfferId.photoId.file" 
+                        alt="{{e.eventOfferId.name}}" 
+                        class="card-img-top mb-2" />
+                
+                    <p class="limited-text">{{e.eventOfferId.shortDescription}}</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

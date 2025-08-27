@@ -1,0 +1,49 @@
+<app-header-and-menu></app-header-and-menu>
+
+<div class="container card">
+    <h2 class="card-header">Lični podaci</h2>
+    <form (ngSubmit)="onUpdate()" #profileForm="ngForm" class="card-body row d-flex flex-column align-items-center">
+  
+      <div class="form-group col-6">
+        <label for="username">Korisničko ime</label>
+        <input type="text" id="username" name="username" [(ngModel)]="user.username" required class="form-control" />
+      </div>
+  
+      <div class="form-group col-6">
+        <label for="firstName">Ime</label>
+        <input type="text" id="firstName" name="firstName" [(ngModel)]="user.firstName" required class="form-control" />
+      </div>
+  
+      <div class="form-group col-6">
+        <label for="lastName">Prezime</label>
+        <input type="text" id="lastName" name="lastName" [(ngModel)]="user.lastName" required class="form-control" />
+      </div>
+  
+      <div class="form-group col-6">
+        <label for="phone">Telefon</label>
+        <input type="text" id="phone" name="phone" [(ngModel)]="user.phone" required class="form-control" />
+      </div>
+  
+      <div class="form-group col-6">
+        <label for="address">Adresa</label>
+        <input type="text" id="address" name="address" [(ngModel)]="user.address" required class="form-control" />
+      </div>
+  
+      <div class="form-group col-6">
+        <label for="userType">Tip korisnika</label>
+        <input type="text" id="userType" [value]="user.userTypeId.name" disabled class="form-control" />
+      </div>
+  
+      <button type="submit" [disabled]="profileForm.invalid" class="btn btn-primary col-3 mt-2">
+        Sačuvaj izmene
+      </button>
+    </form>
+  
+    <p class="info-message mt-2">
+      <a routerLink="/change-password">Promeni lozinku</a>
+    </p>
+  
+    <p *ngIf="message" class="info-message">{{ message }}</p>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+  </div>
+  

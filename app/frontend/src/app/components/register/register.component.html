@@ -1,0 +1,89 @@
+<app-header-and-menu></app-header-and-menu>
+
+<div class="container card">
+  <h2 class="card-header">Registracija</h2>
+  <form (ngSubmit)="onRegister()" #registerForm="ngForm" class="card-body d-flex flex-column align-items-center">
+    
+    <div class="form-group col-6 mb-3">
+      <label for="username">Korisničko ime</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        [(ngModel)]="username"
+        required
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group col-6 mb-3">
+      <label for="password">Lozinka</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group col-6 mb-3">
+      <label for="firstName">Ime</label>
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        [(ngModel)]="firstName"
+        required
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group col-6 mb-3">
+      <label for="lastName">Prezime</label>
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        [(ngModel)]="lastName"
+        required
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group col-6 mb-3">
+      <label for="phone">Telefon</label>
+      <input
+        type="text"
+        id="phone"
+        name="phone"
+        [(ngModel)]="phone"
+        required
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group col-6 mb-3">
+      <label for="address">Adresa</label>
+      <input
+        type="text"
+        id="address"
+        name="address"
+        [(ngModel)]="address"
+        required
+        class="form-control"
+      />
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary col-3 mt-2">
+      Registruj se
+    </button>
+  </form>
+
+  <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+
+  <div class="login-links card-footer">
+    <a routerLink="/login">Prijavi se</a>
+  </div>
+</div>
