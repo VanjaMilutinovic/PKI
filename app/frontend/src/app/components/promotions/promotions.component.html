@@ -1,0 +1,24 @@
+<app-header-and-menu></app-header-and-menu>
+
+<div class="container">
+    <h2>Promocije</h2>
+    <p>{{ errorMsg }}</p>
+    <div class="row">
+        <div class="col-md-4  mb-2" *ngFor="let e of viewPromotions">       
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5>{{e.name}}</h5>
+                </div>
+                <div class="card-body pb-0">
+                    <img *ngIf="e.photoId && e.photoId.file" 
+                        [src]="e.photoId.file" 
+                        alt="{{e.name}}" 
+                        class="card-img-top mb-2" />
+                
+                    <p class="limited-text">{{e.description}}</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

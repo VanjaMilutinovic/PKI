@@ -1,0 +1,16 @@
+.notification-circle {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-blue-color);
+  }
+  
+  .notification-circle.unread {
+    background-color: var(--primary-blue-color); 
+  }
+  
+  .notification-circle.read {
+    background-color: transparent; 
+  }
+  

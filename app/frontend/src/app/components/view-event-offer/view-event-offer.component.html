@@ -1,0 +1,139 @@
+<app-header-and-menu></app-header-and-menu>
+
+<div class="container card" *ngIf="eventOffer; else errorTemplate">
+  <h2 class="card-header">{{ eventOffer.name }}</h2>
+
+  <div class="card-body">
+    <div class="row">
+      <!-- Slika levo, zauzima 4 kolone -->
+      <div class="col-4 d-flex justify-content-center align-items-start">
+        <img 
+          *ngIf="eventOffer.photoId?.file"
+          [src]="eventOffer.photoId?.file || 'assets/placeholder.jpg'"
+          [alt]="eventOffer.name"
+          class="img-fluid rounded mb-2" 
+        />
+      </div>
+
+      <!-- Informacije desno, 8 kolona -->
+      <div class="col-8 d-flex flex-column align-items-start">
+        <p class="card-text">
+          <strong>Kratak opis:</strong> {{ eventOffer.shortDescription }}
+        </p>
+        <p class="card-text" *ngIf="eventOffer.description">
+          <strong>Detaljan opis:</strong> {{ eventOffer.description }}
+        </p>
+        <p class="card-text">
+          <strong>Cena:</strong> {{ eventOffer.price }} €
+        </p>
+      </div>
+    </div>
+
+    <!-- Tabela komentara i ocena -->
+    <h4 class="mb-1">Komentari i ocene</h4>
+    <div *ngIf="showEventList?.length">
+      <table class="table table-bordered mt-0">
+        <thead>
+          <tr>
+            <th>Korisnik</th>
+            <th>Ocena</th>
+            <th>Komentar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of showEventList">
+            <td>{{ event.customerId?.firstName }} {{ event.customerId?.lastName }}</td>
+            <td>{{ event.grade ?? 'N/A' }}</td>
+            <td>{{ event.comment ?? 'Nema komentara' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Ocenjivanje -->
+    <h4 class="mb-1" *ngIf="eventsToComment.length>0">Događaji koje možete oceniti</h4>
+    <div *ngFor="let event of eventsToComment" class="card mb-3 p-3">
+      <div class="row align-items-end">
+        <div class="col-12 mb-2">
+          <strong>{{ event.eventOfferId.name }}</strong> ({{ event.numberOfPeople }} gostiju, {{ event.date | date:'short' }})
+        </div>
+    
+        <!-- Zvezdice za ocenu -->
+        <div class="col-2">
+          <label class="form-label mb-1">Ocena</label>
+          <div class="star-rating">
+            <ng-container *ngFor="let star of [1,2,3,4,5]">
+              <span 
+                class="star" 
+                [class.filled]="star <= (event.hoverGrade || event.grade ?? 0)" 
+                [class.hovered]="star <= event.hoverGrade && event.hoverGrade != 0"
+                (click)="event.grade = star"
+                (mouseenter)="event.hoverGrade = star"
+                (mouseleave)="event.hoverGrade = 0">
+                ★
+              </span>
+            </ng-container>
+          </div>
+        </div>
+        
+    
+        <!-- Comment input -->
+        <div class="col-8">
+          <label for="comment{{event.eventId}}" class="form-label mb-1">Komentar</label>
+          <input type="text" id="comment{{event.eventId}}" [(ngModel)]="event.comment" class="form-control">
+        </div>
+    
+        <!-- Submit button -->
+        <div class="col-2 mt-2">
+          <button class="btn btn-primary w-100" (click)="submitComment(event)">Dodaj komentar</button>
+        </div>
+      </div>
+    </div>
+    
+    <h4 class="mb-1">Zakaži događaj</h4>
+    <div class="card">
+      <form (ngSubmit)="addToCart()" #cartForm="ngForm" class="row g-3 align-items-center m-0 p-0">
+        
+        <!-- Datum -->
+        <div class="col-6">
+          <label for="eventDate" class="form-label">Datum</label>
+          <input
+            type="date"
+            id="eventDate"
+            name="eventDate"
+            [(ngModel)]="eventDate"
+            required
+            class="form-control"
+          />
+        </div>
+    
+        <!-- Broj gostiju -->
+        <div class="col-6">
+          <label for="numberOfPeople" class="form-label">Broj gostiju</label>
+          <input
+            type="number"
+            id="numberOfPeople"
+            name="numberOfPeople"
+            [(ngModel)]="numberOfPeople"
+            required
+            min="1"
+            class="form-control"
+          />
+        </div>
+    
+        <!-- Dugme Dodaj u korpu -->
+        <div class="col-6 d-flex flex-column align-items-center">
+          <button type="submit" class="btn btn-primary w-50" [disabled]="cartForm.invalid">
+            Dodaj u korpu
+          </button>
+        </div>
+      </form>
+    </div>
+    
+
+  </div>
+</div>
+
+<ng-template #errorTemplate>
+  <p class="error-message">{{ errorMsg }}</p>
+</ng-template>

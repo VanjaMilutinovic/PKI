@@ -1,0 +1,42 @@
+<app-header-and-menu></app-header-and-menu>
+
+<div class="container login-container card">
+  <h2 class="card-header">Uloguj se</h2>
+  <form (ngSubmit)="onLogin()" #loginForm="ngForm" class="card-body row d-flex flex-column align-items-center">
+    <div class="form-group col-6">
+      <label for="username">Korisničko ime</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        [(ngModel)]="username"
+        required
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group col-6">
+      <label for="password">Lozinka</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+        class="form-control"
+      />
+    </div>
+
+    <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary col-3 mt-2">
+      Uloguj se
+    </button>
+  </form>
+
+  <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+
+  <div class="login-links card-footer">
+    <a routerLink="/register">Registruj se</a>
+    |
+    <a routerLink="/change-password">Promeni lozinku</a>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+/* Header */
+header {
+    background-color: var(--secondary-blue-color, inherit);
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+header h4 {
+    color: var(--primary-black-color, inherit);
+}
+
+header h5 {
+    color: var(--secondary-black-color, inherit);
+}
+
+/* Navigation container */
+.navbar-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Navigation links */
+.navbar-container a {
+    font-size: 14px;
+    padding: 5px 8px;
+    color: var(--secondary-black-color, inherit);
+}
+
+.navbar-container .nav-link:hover {
+    color: var(--header-hover, inherit);
+}
+
+/* Icon sizes */
+.nav-icon {
+    width: 20px;
+    height: auto;
+    margin-right: 5px;
+}
+
+/* Profile image */
+.profile-image {
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    min-width: 150px;
+    padding: 5px 10px;
+    background-color: var(--dropdown-background, inherit);
+}
+
+/* Dropdown items */
+.dropdown-item {
+    padding: 6px 12px;
+    font-size: 14px;
+    white-space: nowrap;
+    color: var(--dropdown-item-color, inherit) !important;
+}
+
+.dropdown-item:hover {
+    background-color: var(--dropdown-hover-background, inherit);
+    color: var(--primary-white-color, inherit) !important;
+    cursor: pointer;
+}
+
+/* Primary blue button hover state */
+.btn-primary-blue:hover {   
+    background-color: var(--secondary-blue-color);
+    border: 2px solid var(--primary-blue-color); 
+}
+
+.dropdown-divider {
+    border-color: var(--text-color);
+}
