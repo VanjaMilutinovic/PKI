@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_profile" android:title="Pregled profila"/>
+    <item android:id="@+id/menu_notifications" android:title="Obaveštenja"/>
+    <item android:id="@+id/menu_cart" android:title="Korpa"/>
+    <item android:id="@+id/menu_scheduling" android:title="Zakazivanja"/>
+    <item android:id="@+id/menu_new_offer" android:title="Nova ponuda"/>
+    <item android:id="@+id/menu_login" android:title="Prijavi se"/>
+    <item android:id="@+id/menu_logout" android:title="Odjavi se"/>
+</menu>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- yellows (unchanged) -->
+    <color name="primary_yellow_color">#F9AB00</color>
+    <color name="secondary_yellow_color">#F9D463</color>
+
+    <!-- blues -->
+    <color name="primary_blue_color">#4285F4</color>
+    <color name="secondary_blue_color">#7FA9EC</color>
+
+    <!-- reds -->
+    <color name="primary_red_color">#EA4335</color>
+    <color name="secondary_red_color">#E68077</color>
+
+    <!-- greens -->
+    <color name="primary_green_color">#34A853</color>
+    <color name="secondary_green_color">#76BE8B</color>
+
+    <!-- neutrals -->
+    <color name="primary_white_color">#F1F3F4</color>
+    <color name="secondary_white_color">#D1D3D4</color>
+    <color name="primary_black_color">#212121</color>
+    <color name="secondary_black_color">#333333</color>
+    <color name="primary_gray_color">#5F6368</color>
+
+    <!-- semantic aliases -->
+    <color name="background_color">@color/secondary_black_color</color>
+    <color name="background_color_secondary">@color/primary_black_color</color>
+    <color name="text_color">@color/primary_white_color</color>
+    <color name="card_background">@color/primary_black_color</color>
+    <color name="card_header_footer_background">@color/secondary_yellow_color</color>
+    <color name="card_header_footer_text">@color/primary_black_color</color>
+    <color name="primary_button_background">@color/primary_yellow_color</color>
+    <color name="primary_button_hover_background">@color/secondary_yellow_color</color>
+    <color name="primary_button_text_color">@color/primary_white_color</color>
+    <color name="border_color">@color/primary_black_color</color>
+
+    <!-- extras -->
+    <color name="dropshadow_color_opacity">#F1F3F41A</color>
+</resources>
